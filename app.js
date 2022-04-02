@@ -4,7 +4,7 @@ import User from "./models/user";
 const app = express();
 const port = 3000;
 
-mongoose.connect("mongodb://localhost:27018/myapp");
+mongoose.connect("mongodb://localhost:27018/jsonplaceholder");
 mongoose.connection.on("error", (err) => {
   throw new Error("Mongo connection failed");
 });
