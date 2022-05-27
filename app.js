@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import User from "./models/user";
+import apiRoutes from "./routes/main.routes";
 import "dotenv/config";
 const app = express();
 const port = process.env.APP_PORT;
@@ -15,21 +15,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.get("/create", async (req, res) => {
-  const savedUser = await User.create({
-    title: "Sam",
-    author: "me",
-    date: 25052022,
-  });
-
-  res.json(savedUser);
-});
-
-app.get("/find", async (req, res) => {
-  const users = await User.find({});
-
-  res.json(users);
-});
+app.use("/api", apiRoutes);
 
 app.listen(port, () => {
   console.log(`Our app listening on port ${port}`);
