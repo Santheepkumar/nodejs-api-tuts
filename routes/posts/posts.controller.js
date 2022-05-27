@@ -1,13 +1,12 @@
+import { formatResponse } from "../../lib/res.lib";
 import Posts from "./posts.model";
 
 function getPosts(req, res, next) {
-  Posts.find({}).limit(5)
+  Posts.find({})
     .then((posts) => {
-      res.type("json").status(200).send(JSON.stringify(posts, null, 2, "\n"));
+      formatResponse(res, posts, 200);
     })
-    .catch((e) => {
-      next(e);
-    });
+    .catch(next);
 }
 
 export { getPosts };
