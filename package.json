@@ -6,15 +6,19 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --experimental-specifier-resolution=node app"
+    "start": "nodemon --experimental-specifier-resolution=node app",
+    "seed": "node --experimental-specifier-resolution=node seeds/seeder"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^7.1.0",
+    "add": "^2.0.6",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mongoose": "^6.3.4",
-    "mongoose-sequence": "^5.3.1"
+    "mongoose-sequence": "^5.3.1",
+    "yarn": "^1.22.18"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
