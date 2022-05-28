@@ -12,6 +12,8 @@ mongoose.connection.on("error", (err) => {
   throw new Error("Mongo connection failed");
 });
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
