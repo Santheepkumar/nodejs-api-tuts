@@ -2,15 +2,10 @@ import express from "express";
 import mongoose from "mongoose";
 import apiRoutes from "./routes/main.routes";
 import "dotenv/config";
+import "./database";
 import { formatResponse } from "./lib/res.lib";
 const app = express();
 const port = process.env.APP_PORT;
-
-const connectionString = process.env.MONGO_DB_CONNECTION_STRING;
-mongoose.connect(connectionString);
-mongoose.connection.on("error", (err) => {
-  throw new Error("Mongo connection failed");
-});
 
 app.use(express.json());
 
@@ -29,7 +24,9 @@ app.use((err, req, res, next) => {
     formatResponse(res, errorObj, 400);
   }
 });
-
-app.listen(port, () => {
-  console.log(`Our app listening on port ${port}`);
+// Once mongoDB connected the start the server
+mongoose.connection.on("connected", (err, res) => {
+  app.listen(port, () => {
+    console.log(`Our app listening on port ${port}`);
+  });
 });
