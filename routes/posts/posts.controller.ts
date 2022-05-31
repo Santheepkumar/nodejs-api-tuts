@@ -1,7 +1,9 @@
+import { Request, Response, NextFunction } from "express";
+import { Model } from "mongoose";
 import { formatResponse } from "../../lib/res.lib";
 import Posts from "./posts.model";
 
-function getPosts(req, res, next) {
+function getPosts(req: Request, res: Response, next: NextFunction) {
   const limit = Number(req.query.limit) || 0;
 
   Posts.find({})
@@ -12,7 +14,7 @@ function getPosts(req, res, next) {
     .catch(next);
 }
 
-function createPosts(req, res, next) {
+function createPosts(req: Request, res: Response, next: NextFunction) {
   const { userId, title, body } = req.body;
   Posts.create({
     userId: userId,
@@ -25,7 +27,7 @@ function createPosts(req, res, next) {
     .catch(next);
 }
 
-async function updatePost(req, res, next) {
+async function updatePost(req: Request, res: Response, next: NextFunction) {
   const recordId = req.params.id;
 
   if (!recordId) throw new Error("Post Id not passed in url");

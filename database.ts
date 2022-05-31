@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { connectionString } from "./env";
 
-mongoose.connect(connectionString);
+mongoose.connect(connectionString as string);
 
 mongoose.connection.on("error", (err) => {
   throw new Error("Mongo connection failed");

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const { Schema, model } = mongoose;
 import mongooseSeq from "mongoose-sequence";
-const AutoIncrement = mongooseSeq(mongoose);
+const AutoIncrement: any = mongooseSeq(mongoose as any);
 
 const postSchema = new Schema({
   userId: {
