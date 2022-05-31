@@ -12,7 +12,19 @@ function getPosts(req, res, next) {
     .catch(next);
 }
 
-function createPosts(req, res, next) {
+function getPost(req, res, next) {
+  const recordId = req.params.id;
+  Posts.findOne({ id: recordId })
+    .then((post) => {
+      if (!post) {
+        throw new Error(`No post found for this id - ${recordId}`);
+      }
+      res.json(post);
+    })
+    .catch(next);
+}
+
+function createPost(req, res, next) {
   const { userId, title, body } = req.body;
   Posts.create({
     userId: userId,
@@ -46,4 +58,17 @@ async function updatePost(req, res, next) {
   }
 }
 
-export { getPosts, createPosts, updatePost };
+async function deletePost(req, res, next) {
+  const recordId = req.params.id;
+  try {
+    // await Posts.deleteMany({ title: "One" });
+    await Posts.deleteOne({ id: recordId });
+    res.json({
+      message: "Record deleted",
+    });
+  } catch (errr) {
+    next(err);
+  }
+}
+
+export { getPosts, createPost, updatePost, getPost, deletePost };
