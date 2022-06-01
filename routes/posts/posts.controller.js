@@ -1,4 +1,5 @@
 import { formatResponse } from "../../lib/res.lib";
+import Comments from "../comments/comments.model";
 import Posts from "./posts.model";
 
 function getPosts(req, res, next) {
@@ -37,6 +38,15 @@ function createPost(req, res, next) {
     .catch(next);
 }
 
+function getPostComments(req, res, next) {
+  const postId = req.params.id;
+  Comments.find({ postId })
+    .then((comments) => {
+      formatResponse(res, comments, 200);
+    })
+    .catch(next);
+}
+
 async function updatePost(req, res, next) {
   const recordId = req.params.id;
 
@@ -71,4 +81,11 @@ async function deletePost(req, res, next) {
   }
 }
 
-export { getPosts, createPost, updatePost, getPost, deletePost };
+export {
+  getPosts,
+  createPost,
+  updatePost,
+  getPost,
+  deletePost,
+  getPostComments,
+};
