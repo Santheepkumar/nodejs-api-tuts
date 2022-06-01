@@ -1,1 +1,1 @@
-web: yarn seed && yarn start
+web: npm run seed && npm run start
