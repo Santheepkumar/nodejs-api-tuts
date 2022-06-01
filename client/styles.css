@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap");
+
+:root {
+    --thatPurple: rgb(128, 0, 255, 1);
+    --lightPurple: rgb(168 85 247);
+    --littlePurple: rgb(250 245 255 / 0.3);
+    --borderGray: #d2d6dc;
+    --borderGray2: #d2d6dc60;
+    --darkMode: rgba(26, 32, 46, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+input {
+    all: unset;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    color: white;
+}
+header {
+    background-color: var(--thatPurple);
+    height: 432px;
+    /* background-color: rgb(128, 0, 255, 1); */
+}
+
+.header-links {
+    padding: 1rem;
+}
+.header-link {
+    display: flex;
+}
+.header-link-emoji {
+    width: 1.5rem;
+}
+.header-link-title {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+.hero-main-icon {
+    margin: 0 !important;
+}
+
+.hero-main-icon img:nth-child(1) {
+    width: 40rem;
+}
+
+.hero-license {
+    font-size: 1.35rem;
+    font-weight: 400;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+.hero-button {
+    display: flex;
+    background-color: var(--littlePurple);
+    padding: 1.2rem;
+    border-radius: 1rem;
+}
+
+.hero-button-svg-2 {
+    height: 1.7rem;
+    margin-right: 1rem;
+}
+
+.hero-button-title {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-top: -1px;
+}
+
+.hero-sponsors {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+.channal-link {
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.4rem;
+}
+
+.hero-brands {
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.hero-brand-link img {
+    width: 10rem;
+}
+
+.hero-brand-link a {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Main section styles */
+.main-wrapper {
+    background-color: white;
+    color: black;
+    max-width: clamp(300px, 100%, 1152px);
+    margin: auto;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 23rem;
+    border-radius: 1.5rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 1px 4px 10px 2px;
+    padding: 1rem;
+}
+
+.hero {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#theme-change-button {
+    width: 2rem;
+    background-color: var(--borderGray2);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    position: absolute;
+    right: 0;
+}
+
+.api-card {
+    display: flex;
+    gap: 1rem;
+}
