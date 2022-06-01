@@ -3,8 +3,10 @@ import "./database";
 import apiRoutes from "./routes/main.routes";
 import { formatResponse } from "./lib/res.lib";
 import { port } from "./env";
+import cors from "cors";
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
