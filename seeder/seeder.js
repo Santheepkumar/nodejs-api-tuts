@@ -5,6 +5,7 @@ import { importPhotos } from "./seedPhotos";
 async function dropSeeds(cNames) {
   for (const name of cNames) {
     await mongoose.connection.dropCollection(name);
+    console.log("-----------------Collection dropped------------------");
   }
 }
 

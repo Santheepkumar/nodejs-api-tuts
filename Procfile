@@ -1,1 +1,1 @@
-web: node app.js
+web: yarn seed -d && yarn seed && yarn prod
